@@ -1,0 +1,15 @@
+
+svg {
+    width: 317px;
+    height: 470px;
+}
+
+path {
+    stroke-dasharray: 1000;
+    /* Large enough value to cover any path */
+    stroke-dashoffset: 1000;
+    /* Initially hidden */
+    transition: stroke-dashoffset 4s ease-out;
+    /* Smooth transition */
+
+}
