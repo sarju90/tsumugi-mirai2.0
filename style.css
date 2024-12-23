@@ -1246,7 +1246,7 @@ background: linear-gradient(90deg, #EE975B 0%, #CB641C 100%);
   height: 100%;
   background-image: url('assets/images/bas.png');
   background-position: center;
-  background-size:100% 100%;
+  background-size:100% 95%;
   background-repeat: no-repeat;
   transition: all 0.2s;
 }
@@ -1340,8 +1340,8 @@ background: linear-gradient(90deg, #EE975B 0%, #CB641C 100%);
   transform: rotate(-8deg);
 }
 .tsumugu .item-tsumugu-scroll.active .slider-tsumugu-thumb {
-    -webkit-animation: transformrotate 2s linear 0s forwards;
-    animation: transformrotate 2s  linear 0s forwards;
+    /* -webkit-animation: transformrotate 2s linear 0s forwards;
+    animation: transformrotate 2s  linear 0s forwards; */
 }
 
 /*.tsumugu .item-tsumugu-scroll.active:nth-child(odd) .slider-tsumugu-thumb .backs{
@@ -1385,13 +1385,13 @@ background: linear-gradient(90deg, #EE975B 0%, #CB641C 100%);
   transform: translateY(10px);
   opacity:0;
 }
-
-.active-animation-even{
-  transform: rotate(-5deg) !important;
+.active-animation-even {
+    transform: rotate(-8deg) !important;
+  
 }
 
 .active-animation{
-  transform: rotate(5deg) !important;
+  transform: rotate(11deg) !important;
 }
 
 .active-animation-back{
@@ -1399,7 +1399,7 @@ background: linear-gradient(90deg, #EE975B 0%, #CB641C 100%);
 }
 
 .active-animation-back-even{
-  transform: rotate(8deg) !important;
+  transform: rotate(11deg) !important;
 }
 .tsumugu .item-tsumugu-scroll.active .slider-tsumugu-text{
       -webkit-animation: transformUp 0.5s linear 0s forwards;

@@ -479,32 +479,30 @@ document.addEventListener('DOMContentLoaded', function() {
                                
                                 if (thumb) {
                                     thumb.classList.add('active-animation');
-                                    setTimeout(() => {
-                                        thumb.classList.remove('active-animation');
-                                    }, 1000); // Animation duration
+                                    // setTimeout(() => {
+                                    //     thumb.classList.remove('active-animation');
+                                    // }, 1000); // Animation duration
                                 }
 
                                 if (thumbBack) {
                                     thumbBack.classList.add('active-animation-back');
-                                    setTimeout(() => {
-                                        thumbBack.classList.remove('active-animation-back');
-                                    }, 1000); // Animation duration
+                                    // setTimeout(() => {
+                                    //     thumbBack.classList.remove('active-animation-back');
+                                    // }, 1000); // Animation duration
                                 }
                             }else if(index === 2 || index === 4 || index==0 ){
                                 if (thumb) {
                                     thumb.classList.add('active-animation-even');
-                                    setTimeout(() => {
-                                        thumb.classList.remove('active-animation-even');
-                                    }, 1000); // Animation duration
+                                   
                                 }
                                 
                                 
                                 
                                 if (thumbBack) {
                                     thumbBack.classList.add('active-animation-back-even');
-                                    setTimeout(() => {
-                                        thumbBack.classList.remove('active-animation-back-even');
-                                    }, 1000); // Animation duration
+                                    // setTimeout(() => {
+                                    //     thumbBack.classList.remove('active-animation-back-even');
+                                    // }, 1000); // Animation duration
                                 }
                             }
     
@@ -524,6 +522,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             // }
                         } else {
                             item.classList.remove('active');
+                            if (thumb) {
+                                thumb.classList.remove('active-animation-even');
+                                thumb.classList.remove('active-animation');
+                            }
+                            if (thumbBack) {
+                                thumbBack.classList.remove('active-animation-back-even');
+                                thumbBack.classList.remove('active-animation-back');
+                                // setTimeout(() => {
+                                //     thumbBack.classList.remove('active-animation-back-even');
+                                // }, 1000); // Animation duration
+                            }
+                          
                         }
                     });
     
