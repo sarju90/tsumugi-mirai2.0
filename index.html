@@ -116,56 +116,67 @@
     class="home page-template page-template-page-templates page-template-template-home page-template-page-templatestemplate-home-php page page-id-8"
   >
     <style>
-
-
-     
-        @keyframes fadeUp {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
         }
-      
-        .fade-up {
-          opacity: 0; /* Start hidden */
-          transform: translateY(20px); /* Initial position */
-          transition: opacity 0.8s, transform 0.8s; /* Fallback for browsers without Intersection Observer */
-        }
-      
-        .fade-up.show {
+        100% {
           opacity: 1;
-          transform: translateY(0); /* Final position */
-          animation: fadeUp 1s ease-out forwards; /* Trigger animation */
+          transform: translateY(0);
         }
+      }
+    
+      .fade-up {
+        opacity: 0; /* Start hidden */
+        transform: translateY(20px); /* Initial position */
+        transition: opacity 0.8s, transform 0.8s; /* Fallback for browsers without Intersection Observer */
+      }
+    
+      .fade-up.show {
+        opacity: 1;
+        transform: translateY(0); /* Final position */
+        animation: fadeUp 2s ease-out forwards; /* Trigger animation */
+      }
 
-        
-     
-        @keyframes zoomInBg {
-          0% {
-            background-size: 50% 50%; /* Start at the normal size */
-          }
-          100% {
-            background-size: 110% 110%; /* End with a zoomed-in size */
-          }
-        }
-        
-        .zoom-bg {
-          background-image: var(--bss-s);
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: 100% 100%; /* Initial size */
-          animation: zoomInBg 3s ease-in-out forwards; /* Zoom-in animation for background */
-        }
       
-      /* Fade-up animation */
-  
-    /* Initial styles for both divs */
-   
-    </style>   
+      @keyframes zoomInBg {
+        0% {
+          background-size: 0% 0%; /* Start smaller */
+        }
+        100% {
+          background-size: 100% 100%; /* End at full size */
+        }
+      }
+      
+      .zoom-bg {
+        background-image: var(--bss-s);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 0% 0%; /* Initial size */
+        animation: none; /* Default state, no animation initially */
+        animation-fill-mode: forwards; /* Ensure the final state persists */
+      }
+
+      .animated-path {
+        stroke: black;
+        stroke-width: 0.5;
+        fill: none;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: draw 10s ease-out forwards;
+        transition: fill 1s;
+      }
+      .animated-path-first {
+        opacity: 0;
+      }
+      @keyframes draw {
+        to {
+          stroke-dashoffset: 0;
+          fill: black;
+        }
+      }
+    </style>
     <div class="loadingPage" style="width: 100%; height: 100%">
       <img
         src="assets/img/svg/loading1.svg"
@@ -213,7 +224,7 @@
           >
             <div class="site-branding">
               <div class="logo-heager">
-                   <div class="icon-container">
+                <div class="icon-container">
                   <svg
                     class="overlay-icon"
                     width="66.74"
@@ -739,8 +750,13 @@
                         d="M216.274 400.731C216.474 400.731 216.684 400.691 216.884 400.601C217.634 400.261 217.974 399.381 217.634 398.621C215.994 395.011 214.304 391.171 212.974 387.661C212.684 386.891 211.824 386.501 211.044 386.791C210.274 387.081 209.884 387.951 210.174 388.721C211.544 392.311 213.254 396.191 214.904 399.851C215.154 400.401 215.704 400.731 216.274 400.731ZM225.754 422.781C225.934 422.781 226.114 422.751 226.284 422.681C227.064 422.391 227.454 421.521 227.164 420.751C225.884 417.341 224.424 413.791 222.574 409.571C222.234 408.811 221.354 408.471 220.594 408.801C219.834 409.141 219.494 410.021 219.824 410.781C221.654 414.951 223.094 418.461 224.354 421.811C224.574 422.411 225.144 422.781 225.754 422.781ZM232.064 445.891C232.144 445.891 232.214 445.881 232.294 445.871C233.114 445.741 233.674 444.981 233.554 444.161C232.974 440.341 232.104 436.341 230.964 432.261C230.734 431.461 229.904 431.001 229.114 431.221C228.314 431.451 227.854 432.271 228.074 433.071C229.184 437.031 230.024 440.911 230.584 444.611C230.694 445.361 231.334 445.891 232.064 445.891ZM231.884 469.791C232.584 469.811 233.214 469.301 233.344 468.581C234.064 464.621 234.434 460.511 234.454 456.381C234.464 455.551 233.794 454.871 232.964 454.871C232.134 454.871 231.464 455.531 231.464 456.361C231.454 460.311 231.094 464.241 230.404 468.031C230.254 468.841 230.804 469.621 231.614 469.771C231.704 469.791 231.794 469.791 231.884 469.791Z"
                       ></path>
                     </svg>
-                    <div class="imgsa">
-                      <img src="./assets/img/svg/background.png" alt="" />
+                    <div class="imgsa zoom-bg"
+                    style="
+                  --bss-s: url(./assets/img/svg/background.png);
+                  background-size: 100% 100%;
+                "
+                    >
+                      <!-- <img src="./assets/img/svg/background.png" alt="" /> -->
                     </div>
                     <div class="spacer"></div>
                   </div>
@@ -1127,11 +1143,11 @@
             </div>
             <div class="text-section-bt">
               <div
-                class="items-bt items-bt-1 fade-up zoom-bg"
+                class="items-bt items-bt-1 zoom-bg"
                 style="
                   --bss-s: url(./assets/img/mainimage/Group-10008-e1722648984624.png);
                   background-size: 100% 100%;
-                  margin-top:90px;
+                   margin-top:90px;
                 "
               >
                 <div class="container">
@@ -1163,60 +1179,58 @@
               </div>
 
               <div
-              class="items-bt items-bt-2 fade-up zoom-bg"
-              style="
-                --bss-s: url(./assets/img/mainimage/Group-10007-1-e1722649304742.png);
-                background-size: 100% 100%;
-             
-              "
-            >
-              <div class="container">
-                <div class="row" style="margin-left: 40%">
-                  <div class="col-lg-6"></div>
-                  <div class="col-lg-6">
-                    <div class="text-group fade-up">
-                      <p class="font-22">私たちが提供するのは、1冊の本。</p>
-                      <p>
-                        <span
-                          >社員さんの「想い」を<br />
-                          主人公にした本を作成します。</span
-                        >
-                      </p>
+                class="items-bt items-bt-2  zoom-bg"
+                style="
+                  --bss-s: url(./assets/img/mainimage/Group-10007-1-e1722649304742.png);
+                  background-size: 100% 100%;
+                "
+              >
+                <div class="container">
+                  <div class="row" style="margin-left: 40%">
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6">
+                      <div class="text-group fade-up">
+                        <p class="font-22">私たちが提供するのは、1冊の本。</p>
+                        <p>
+                          <span
+                            >社員さんの「想い」を<br />
+                            主人公にした本を作成します。</span
+                          >
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            
-            <div
-              class="items-bt items-bt-3 fade-up"
-              style="
-                --bss-s: url(./assets/img/mainimage/Group-10007-1-e1722649304742.png);
-                background-size: 100% 100%;
-              "
-            >
-              <div class="container">
-                <div class="row" style="margin-left: 40%">
-                  <div class="col-lg-6"></div>
-                  <div class="col-lg-6">
-                    <div class="text-group fade-up">
-                      <p>制作の工程で、</p>
-                      <p>
-                        お客様への想い、<br />
-                        仲間への想い、<br />
-                        仕事への想い、<br />
-                        そして社員さんご自身の想い、
-                      </p>
-                      <p>心の奥底にある気持ちに光を当てます。</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
 
               <div
-                class="items-bt items-bt-4 fade-up"
+                class="items-bt items-bt-3  zoom-bg"
+                style="
+                  --bss-s: url(./assets/img/mainimage/Group-10007-1-e1722649304742.png);
+                  background-size: 100% 100%;
+                "
+              >
+                <div class="container">
+                  <div class="row" style="margin-left: 40%">
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6">
+                      <div class="text-group fade-up">
+                        <p>制作の工程で、</p>
+                        <p>
+                          お客様への想い、<br />
+                          仲間への想い、<br />
+                          仕事への想い、<br />
+                          そして社員さんご自身の想い、
+                        </p>
+                        <p>心の奥底にある気持ちに光を当てます。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="items-bt items-bt-4 zoom-bg"
                 style="
                   --bss-s: url(./assets/img/mainimage/Group-10009-e1722649234123.png);
                   background-size: 100% 100%;
@@ -1245,7 +1259,7 @@
               </div>
 
               <div
-                class="items-bt items-bt-5 fade-up"
+                class="items-bt items-bt-5 zoom-bg"
                 style="
                   --bss-s: url(./assets/img/mainimage/Group-10006-e1722651363414.png);
                   background-size: 100% 100%;
@@ -1271,6 +1285,7 @@
                   <div class="row" style="margin-left: 40%">
                     <div class="col-lg-6"></div>
                     <div class="col-lg-6">
+                      <div class="text-group">
                         <p class="subss">
                           さあ、組織と個人が<br />
                           織りなす物語を<br />
@@ -3256,17 +3271,6 @@
       // Observe each div
       divs.forEach((div) => observersd.observe(div));
     </script>
-
-    <!-- <script>
-      const svgs = document.querySelectorAll('.icon-container svg');
-      let currentIndex = 0;
-  
-      setInterval(() => {
-        svgs[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % svgs.length;
-        svgs[currentIndex].classList.add('active');
-      }, 1000); // Change every 1 second
-    </script> -->
     <script data-cfasync="false">
       var dFlipLocation = "https://tsumugi-mirai.jp/lp-brandbook/./assets/";
       var dFlipWPGlobal = {
@@ -3322,7 +3326,37 @@
         sharePrefix: "flipbook-",
       };
     </script>
-
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const fadeElements = document.querySelectorAll(".fade-up");
+        const zoomBgElements = document.querySelectorAll(".zoom-bg");
+      
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                if (entry.target.classList.contains("fade-up")) {
+                  entry.target.classList.add("show"); // Trigger text fade-up animation
+                }
+                if (entry.target.classList.contains("zoom-bg")) {
+                  entry.target.style.animation = "zoomInBg 1.5s ease-in-out forwards"; // Trigger background zoom-in
+                }
+                observer.unobserve(entry.target); // Stop observing once the animation is triggered
+              }
+            });
+          },
+          {
+            threshold: 0.2, // Trigger when 20% of the element is visible
+          }
+        );
+      
+        fadeElements.forEach((el) => observer.observe(el));
+        zoomBgElements.forEach((el) => observer.observe(el));
+      });
+      
+      
+    </script>
+<!-- 
     <script>
      
       document.addEventListener("DOMContentLoaded", () => {
@@ -3352,10 +3386,7 @@
         zoomBgElements.forEach((el) => observer.observe(el));
       });
       
-    </script>
-    
-
-  
+    </script> -->
     
     <!-- <script>
     const path = document.getElementById('animatedPath');

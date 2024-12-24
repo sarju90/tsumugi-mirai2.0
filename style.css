@@ -4061,11 +4061,11 @@ width: 100%;
 .imgsa{
   position: absolute;
 transform: rotate(180deg);
-  top: -55%;
+  top: -30%;
   opacity: 0.5;
-  left: -10%;
- min-width: 800px;
- min-height: 600px;
+  left: 23%;
+ min-width: 572px;
+ min-height: 479px;
 }
 .text-svg-mar{
   margin-left: 60%;
