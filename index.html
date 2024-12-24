@@ -116,6 +116,56 @@
     class="home page-template page-template-page-templates page-template-template-home page-template-page-templatestemplate-home-php page page-id-8"
   >
     <style>
+
+
+     
+        @keyframes fadeUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      
+        .fade-up {
+          opacity: 0; /* Start hidden */
+          transform: translateY(20px); /* Initial position */
+          transition: opacity 0.8s, transform 0.8s; /* Fallback for browsers without Intersection Observer */
+        }
+      
+        .fade-up.show {
+          opacity: 1;
+          transform: translateY(0); /* Final position */
+          animation: fadeUp 1s ease-out forwards; /* Trigger animation */
+        }
+
+        
+     
+        @keyframes zoomInBg {
+          0% {
+            background-size: 50% 50%; /* Start at the normal size */
+          }
+          100% {
+            background-size: 110% 110%; /* End with a zoomed-in size */
+          }
+        }
+        
+        .zoom-bg {
+          background-image: var(--bss-s);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 100% 100%; /* Initial size */
+          animation: zoomInBg 3s ease-in-out forwards; /* Zoom-in animation for background */
+        }
+      
+      /* Fade-up animation */
+  
+    /* Initial styles for both divs */
+   
+
       .animated-path {
         stroke: black;
         stroke-width: 0.5;
@@ -141,7 +191,7 @@
       .icon-container svg.active {
         display: block;
       }
-    </style>
+    </style>   
     <div class="loadingPage" style="width: 100%; height: 100%">
       <img
         src="assets/img/svg/loading1.svg"
@@ -189,8 +239,8 @@
           >
             <div class="site-branding">
               <div class="logo-heager">
-                <div class="icon-container">
-                  <!-- <svg
+                   <div class="icon-container">
+                  <svg
                     class="overlay-icon"
                     width="66.74"
                     height="56"
@@ -222,63 +272,7 @@
                       fill="black"
                       mask="url(#mask)"
                     ></path>
-                  </svg> -->
-                 
-                  <!-- <svg class="svg1" width="66.74" height="56" viewbox="0 0 61 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect  width="66.74"
-                    height="56" />
-                    <path
-                    d="M28.7153 50.0823C28.6461 50.0823 28.5723 50.0823 28.4984 50.0777L27.9541 50.0504L27.2344 49.1757L27.3451 48.6062C27.3866 48.3875 27.7603 46.2326 26.464 44.3875C25.4859 42.9934 23.7652 42.0868 21.3478 41.6859C13.0668 40.1597 4.9473 42.1734 2.65446 42.8248C2.09164 42.9889 1.49651 42.8795 1.02595 42.5287C0.555391 42.1779 0.283203 41.6403 0.283203 41.0572V4.30982C0.283203 3.29387 0.947525 2.41915 1.93478 2.13669C5.84229 1.01595 19.304 -2.12302 30.3207 3.88613C41.3466 -2.12302 54.7945 1.01595 58.6974 2.13669C59.6708 2.41915 60.349 3.31209 60.349 4.30982V40.9205C60.349 41.4991 60.0722 42.0504 59.6017 42.392C59.1311 42.7383 58.5314 42.8431 57.9639 42.6791C55.6803 42.0094 47.5885 39.9501 39.3306 41.4809C36.9686 42.0367 35.4554 43.1483 34.6988 44.8886C33.2594 48.2007 31.0865 50.0823 28.706 50.0823H28.7153ZM29.8548 4.14581C29.8548 4.14581 29.8502 4.14581 29.8455 4.15037C29.8455 4.15037 29.8502 4.15037 29.8548 4.14581Z"
-                    fill="none"
-                    mask="url(#mask)"
-                  ></path>
-                    </svg> -->
-
-                    <svg class="svg2" width="66.74" height="56" viewBox="0 0 61 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="66.74" height="56" />
-                      <path
-                        d="M28.7153 50.0823C28.6461 50.0823 28.5723 50.0823 28.4984 50.0777L27.9541 50.0504L27.2344 49.1757L27.3451 48.6062C27.3866 48.3875 27.7603 46.2326 26.464 44.3875C25.4859 42.9934 23.7652 42.0868 21.3478 41.6859C13.0668 40.1597 4.9473 42.1734 2.65446 42.8248C2.09164 42.9889 1.49651 42.8795 1.02595 42.5287C0.555391 42.1779 0.283203 41.6403 0.283203 41.0572V4.30982C0.283203 3.29387 0.947525 2.41915 1.93478 2.13669C5.84229 1.01595 19.304 -2.12302 30.3207 3.88613C41.3466 -2.12302 54.7945 1.01595 58.6974 2.13669C59.6708 2.41915 60.349 3.31209 60.349 4.30982V40.9205C60.349 41.4991 60.0722 42.0504 59.6017 42.392C59.1311 42.7383 58.5314 42.8431 57.9639 42.6791C55.6803 42.0094 47.5885 39.9501 39.3306 41.4809C36.9686 42.0367 35.4554 43.1483 34.6988 44.8886C33.2594 48.2007 31.0865 50.0823 28.706 50.0823H28.7153ZM29.8548 4.14581C29.8548 4.14581 29.8502 4.14581 29.8455 4.15037C29.8455 4.15037 29.8502 4.15037 29.8548 4.14581Z"
-                        fill="black"
-                        mask="url(#mask)"
-                        style="clip-path: inset(67% 0 0 0);"
-                      ></path>
-                    </svg>
-                    
-
-                    <svg class="svg3" width="66.74" height="56" viewBox="0 0 61 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="66.74" height="56" />
-                      <path
-                        d="M28.7153 50.0823C28.6461 50.0823 28.5723 50.0823 28.4984 50.0777L27.9541 50.0504L27.2344 49.1757L27.3451 48.6062C27.3866 48.3875 27.7603 46.2326 26.464 44.3875C25.4859 42.9934 23.7652 42.0868 21.3478 41.6859C13.0668 40.1597 4.9473 42.1734 2.65446 42.8248C2.09164 42.9889 1.49651 42.8795 1.02595 42.5287C0.555391 42.1779 0.283203 41.6403 0.283203 41.0572V4.30982C0.283203 3.29387 0.947525 2.41915 1.93478 2.13669C5.84229 1.01595 19.304 -2.12302 30.3207 3.88613C41.3466 -2.12302 54.7945 1.01595 58.6974 2.13669C59.6708 2.41915 60.349 3.31209 60.349 4.30982V40.9205C60.349 41.4991 60.0722 42.0504 59.6017 42.392C59.1311 42.7383 58.5314 42.8431 57.9639 42.6791C55.6803 42.0094 47.5885 39.9501 39.3306 41.4809C36.9686 42.0367 35.4554 43.1483 34.6988 44.8886C33.2594 48.2007 31.0865 50.0823 28.706 50.0823H28.7153ZM29.8548 4.14581C29.8548 4.14581 29.8502 4.14581 29.8455 4.15037C29.8455 4.15037 29.8502 4.15037 29.8548 4.14581Z"
-                        fill="black"
-                        mask="url(#mask)"
-                        style="clip-path: inset(33% 0 0 0);"
-                      ></path>
-                    </svg>
-                    
-                    
-                    <svg class="svg4"width="66.74" height="56" viewbox="0 0 61 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="66.74"
-                      height="56" />
-                      <path
-                      d="M28.7153 50.0823C28.6461 50.0823 28.5723 50.0823 28.4984 50.0777L27.9541 50.0504L27.2344 49.1757L27.3451 48.6062C27.3866 48.3875 27.7603 46.2326 26.464 44.3875C25.4859 42.9934 23.7652 42.0868 21.3478 41.6859C13.0668 40.1597 4.9473 42.1734 2.65446 42.8248C2.09164 42.9889 1.49651 42.8795 1.02595 42.5287C0.555391 42.1779 0.283203 41.6403 0.283203 41.0572V4.30982C0.283203 3.29387 0.947525 2.41915 1.93478 2.13669C5.84229 1.01595 19.304 -2.12302 30.3207 3.88613C41.3466 -2.12302 54.7945 1.01595 58.6974 2.13669C59.6708 2.41915 60.349 3.31209 60.349 4.30982V40.9205C60.349 41.4991 60.0722 42.0504 59.6017 42.392C59.1311 42.7383 58.5314 42.8431 57.9639 42.6791C55.6803 42.0094 47.5885 39.9501 39.3306 41.4809C36.9686 42.0367 35.4554 43.1483 34.6988 44.8886C33.2594 48.2007 31.0865 50.0823 28.706 50.0823H28.7153ZM29.8548 4.14581C29.8548 4.14581 29.8502 4.14581 29.8455 4.15037C29.8455 4.15037 29.8502 4.15037 29.8548 4.14581Z"
-                      fill="black"
-                      mask="url(#mask)"
-                    ></path>
-
-                    <path
-                      d="M28.7153 50.0823C28.6461 50.0823 28.5723 50.0823 28.4984 50.0777L27.9541 50.0504L27.2344 49.1757L27.3451 48.6062C27.3866 48.3875 27.7603 46.2326 26.464 44.3875C25.4859 42.9934 23.7652 42.0868 21.3478 41.6859C13.0668 40.1597 4.9473 42.1734 2.65446 42.8248C2.09164 42.9889 1.49651 42.8795 1.02595 42.5287C0.555391 42.1779 0.283203 41.6403 0.283203 41.0572V4.30982C0.283203 3.29387 0.947525 2.41915 1.93478 2.13669C5.84229 1.01595 19.304 -2.12302 30.3207 3.88613C41.3466 -2.12302 54.7945 1.01595 58.6974 2.13669C59.6708 2.41915 60.349 3.31209 60.349 4.30982V40.9205C60.349 41.4991 60.0722 42.0504 59.6017 42.392C59.1311 42.7383 58.5314 42.8431 57.9639 42.6791C55.6803 42.0094 47.5885 39.9501 39.3306 41.4809C36.9686 42.0367 35.4554 43.1483 34.6988 44.8886C33.2594 48.2007 31.0865 50.0823 28.706 50.0823H28.7153ZM29.8548 4.14581C29.8548 4.14581 29.8502 4.14581 29.8455 4.15037C29.8455 4.15037 29.8502 4.15037 29.8548 4.14581Z"
-                      fill="black"
-                      mask="url(#mask)"
-                    ></path>
-                      </svg>
-                      
-                    <svg class="svg3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 577 361">
-                      <!-- Add SVG 3 content here -->
-                    </svg>
-                    <svg class="svg4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 577 361">
-                      <!-- Add SVG 4 content here -->
-                    </svg>
-                 
+                  </svg>
                 </div>
                 <h1
                   class="entry-title site-title"
@@ -1159,17 +1153,18 @@
             </div>
             <div class="text-section-bt">
               <div
-                class="items-bt items-bt-1"
+                class="items-bt items-bt-1 fade-up zoom-bg"
                 style="
                   --bss-s: url(./assets/img/mainimage/Group-10008-e1722648984624.png);
-                  background-size: 50% 50%;
+                  background-size: 100% 100%;
+                  margin-top:90px;
                 "
               >
                 <div class="container">
                   <div class="row" style="margin-left: 40%">
                     <div class="col-lg-6"></div>
                     <div class="col-lg-6">
-                      <div class="text-group">
+                      <div class="text-group fade-up">
                         <p>
                           <span
                             >日々の仕事、それぞれの業務、<br />
@@ -1194,68 +1189,70 @@
               </div>
 
               <div
-                class="items-bt items-bt-2"
-                style="
-                  --bss-s: url(./assets/img/mainimage/Group-10007-1-e1722649304742.png);
-                  background-size: 50% 50%;
-                "
-              >
-                <div class="container">
-                  <div class="row" style="margin-left: 40%">
-                    <div class="col-lg-6"></div>
-                    <div class="col-lg-6">
-                      <div class="text-group">
-                        <p class="font-22">私たちが提供するのは、1冊の本。</p>
-                        <p>
-                          <span
-                            >社員さんの「想い」を<br />
-                            主人公にした本を作成します。</span
-                          >
-                        </p>
-                      </div>
+              class="items-bt items-bt-2 fade-up zoom-bg"
+              style="
+                --bss-s: url(./assets/img/mainimage/Group-10007-1-e1722649304742.png);
+                background-size: 100% 100%;
+             
+              "
+            >
+              <div class="container">
+                <div class="row" style="margin-left: 40%">
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6">
+                    <div class="text-group fade-up">
+                      <p class="font-22">私たちが提供するのは、1冊の本。</p>
+                      <p>
+                        <span
+                          >社員さんの「想い」を<br />
+                          主人公にした本を作成します。</span
+                        >
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div
-                class="items-bt items-bt-3"
-                style="
-                  --bss-s: url(./assets/img/mainimage/Group-10007-1-e1722649304742.png);
-                  background-size: 50% 50%;
-                "
-              >
-                <div class="container">
-                  <div class="row" style="margin-left: 40%">
-                    <div class="col-lg-6"></div>
-                    <div class="col-lg-6">
-                      <div class="text-group">
-                        <p>制作の工程で、</p>
-                        <p>
-                          お客様への想い、<br />
-                          仲間への想い、<br />
-                          仕事への想い、<br />
-                          そして社員さんご自身の想い、
-                        </p>
-                        <p>心の奥底にある気持ちに光を当てます。</p>
-                      </div>
+            </div>
+            
+            <div
+              class="items-bt items-bt-3 fade-up"
+              style="
+                --bss-s: url(./assets/img/mainimage/Group-10007-1-e1722649304742.png);
+                background-size: 100% 100%;
+              "
+            >
+              <div class="container">
+                <div class="row" style="margin-left: 40%">
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6">
+                    <div class="text-group fade-up">
+                      <p>制作の工程で、</p>
+                      <p>
+                        お客様への想い、<br />
+                        仲間への想い、<br />
+                        仕事への想い、<br />
+                        そして社員さんご自身の想い、
+                      </p>
+                      <p>心の奥底にある気持ちに光を当てます。</p>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+            
 
               <div
-                class="items-bt items-bt-4"
+                class="items-bt items-bt-4 fade-up"
                 style="
                   --bss-s: url(./assets/img/mainimage/Group-10009-e1722649234123.png);
-                  background-size: 50% 50%;
+                  background-size: 100% 100%;
                 "
               >
                 <div class="container">
                   <div class="row" style="margin-left: 40%">
                     <div class="col-lg-6"></div>
                     <div class="col-lg-6">
-                      <div class="text-group">
+                      <div class="text-group fade-up">
                         <p>
                           社員さんご自身も意識していなかった<br />
                           仕事へのやりがいに気づいたり、<br />
@@ -1274,17 +1271,17 @@
               </div>
 
               <div
-                class="items-bt items-bt-5"
+                class="items-bt items-bt-5 fade-up"
                 style="
                   --bss-s: url(./assets/img/mainimage/Group-10006-e1722651363414.png);
-                  background-size: 50% 50%;
+                  background-size: 100% 100%;
                 "
               >
                 <div class="container">
                   <div class="row" style="margin-left: 40%">
                     <div class="col-lg-6"></div>
                     <div class="col-lg-6">
-                      <div class="text-group">
+                      <div class="text-group fade-up">
                         <p>
                           日常の業務で見えづらくなっていた<br />
                           社員さんが目指すもの、<br />
@@ -1300,7 +1297,6 @@
                   <div class="row" style="margin-left: 40%">
                     <div class="col-lg-6"></div>
                     <div class="col-lg-6">
-                      <div class="text-group">
                         <p class="subss">
                           さあ、組織と個人が<br />
                           織りなす物語を<br />
@@ -3352,6 +3348,41 @@
         sharePrefix: "flipbook-",
       };
     </script>
+
+    <script>
+     
+      document.addEventListener("DOMContentLoaded", () => {
+        const fadeElements = document.querySelectorAll(".fade-up");
+        const zoomBgElements = document.querySelectorAll(".zoom-bg");
+      
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                if (entry.target.classList.contains("fade-up")) {
+                  entry.target.classList.add("show");
+                }
+                if (entry.target.classList.contains("zoom-bg")) {
+                  entry.target.style.animationPlayState = "running"; // Trigger zoom-in
+                }
+                observer.unobserve(entry.target); // Stop observing once the animation is triggered
+              }
+            });
+          },
+          {
+            threshold: 0.2, // Trigger when 20% of the element is visible
+          }
+        );
+      
+        fadeElements.forEach((el) => observer.observe(el));
+        zoomBgElements.forEach((el) => observer.observe(el));
+      });
+      
+    </script>
+    
+
+  
+    
     <!-- <script>
     const path = document.getElementById('animatedPath');
     const pathLength = path.getTotalLength();

@@ -4061,7 +4061,7 @@ width: 100%;
 .imgsa{
   position: absolute;
 transform: rotate(180deg);
-  top: -20%;
+  top: -55%;
   opacity: 0.5;
   left: -10%;
  min-width: 800px;
@@ -4070,4 +4070,6 @@ transform: rotate(180deg);
 .text-svg-mar{
   margin-left: 60%;
 }
+
+
 
